@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
-
+python/config.py
 # IDE
 .vscode/
 .idea/
