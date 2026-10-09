@@ -1,0 +1,7 @@
+DROP DATABASE IF EXISTS shop_db;
+CREATE DATABASE shop_db
+  CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+
+CREATE USER IF NOT EXISTS 'bt_user'@'localhost' IDENTIFIED BY '@Hieu0405';
+GRANT ALL PRIVILEGES ON shop_db.* TO 'bt_user'@'localhost';
+FLUSH PRIVILEGES;
