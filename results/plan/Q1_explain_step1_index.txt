@@ -1,0 +1,6 @@
+-- Q1 | Đơn hoàn tất trong tháng 1/2025
+-- nhãn: step1_index
+
+-> Filter: (orders.`status` = 'completed')  (cost=23141 rows=5142) (actual time=128..493 rows=19864 loops=1)
+    -> Index range scan on orders using idx_orders_order_date over ('2025-01-01 00:00:00' <= order_date < '2025-02-01 00:00:00'), with index condition: ((orders.order_date >= TIMESTAMP'2025-01-01 00:00:00') and (orders.order_date < TIMESTAMP'2025-02-01 00:00:00'))  (cost=23141 rows=51424) (actual time=128..475 rows=28207 loops=1)
+

@@ -1,0 +1,7 @@
+-- Q7 | Phân trang sâu: trang thứ 50.001 (20 đơn mỗi trang)
+-- nhãn: step1_index
+
+-> Limit/Offset: 20/1000000 row(s)  (cost=201114 rows=20) (actual time=8262..8262 rows=20 loops=1)
+    -> Sort: orders.order_date DESC, orders.order_id DESC, limit input to 1000020 row(s) per chunk  (cost=201114 rows=1.99e+6) (actual time=7558..8039 rows=1e+6 loops=1)
+        -> Table scan on orders  (cost=201114 rows=1.99e+6) (actual time=0.725..3347 rows=2e+6 loops=1)
+
