@@ -1,0 +1,6 @@
+-- Q1 | Đơn hoàn tất trong tháng 1/2025
+-- nhãn: before
+
+-> Filter: ((orders.`status` = 'completed') and (orders.order_date >= TIMESTAMP'2025-01-01 00:00:00') and (orders.order_date < TIMESTAMP'2025-02-01 00:00:00'))  (cost=201114 rows=22143) (actual time=3426..4215 rows=19864 loops=1)
+    -> Table scan on orders  (cost=201114 rows=1.99e+6) (actual time=0.107..2794 rows=2e+6 loops=1)
+

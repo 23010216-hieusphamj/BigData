@@ -1,0 +1,20 @@
+-- Q5 | Top 3 sản phẩm doanh thu cao nhất mỗi danh mục
+-- nhãn: before
+
+-> Sort: c.category_name, r.hang  (actual time=258646..258646 rows=60 loops=1)
+    -> Stream results  (cost=370169 rows=352505) (actual time=258638..258646 rows=60 loops=1)
+        -> Nested loop inner join  (cost=370169 rows=352505) (actual time=258638..258645 rows=60 loops=1)
+            -> Table scan on c  (cost=2.25 rows=20) (actual time=0.172..0.34 rows=20 loops=1)
+            -> Filter: (r.hang <= 3)  (cost=0.755..13308 rows=17625) (actual time=12932..12932 rows=3 loops=20)
+                -> Index lookup on r using <auto_key0> (category_id=c.category_id)  (cost=0.252..13308 rows=52881) (actual time=12932..12932 rows=500 loops=20)
+                    -> Materialize CTE ranked  (cost=0..0 rows=0) (actual time=258637..258637 rows=10000 loops=1)
+                        -> Window aggregate: row_number() OVER (PARTITION BY product_rev.category_id ORDER BY product_rev.doanh_thu desc )   (actual time=258556..258579 rows=10000 loops=1)
+                            -> Sort: product_rev.category_id, product_rev.doanh_thu DESC  (cost=2.6..2.6 rows=0) (actual time=258556..258561 rows=10000 loops=1)
+                                -> Table scan on product_rev  (cost=2.5..2.5 rows=0) (actual time=258465..258474 rows=10000 loops=1)
+                                    -> Materialize CTE product_rev  (cost=0..0 rows=0) (actual time=258465..258465 rows=10000 loops=1)
+                                        -> Table scan on <temporary>  (actual time=258413..258436 rows=10000 loops=1)
+                                            -> Aggregate using temporary table  (actual time=258413..258413 rows=10000 loops=1)
+                                                -> Nested loop inner join  (cost=2.38e+6 rows=5.29e+6) (actual time=3.36..64121 rows=5.3e+6 loops=1)
+                                                    -> Table scan on oi  (cost=532084 rows=5.29e+6) (actual time=3.28..10462 rows=5.3e+6 loops=1)
+                                                    -> Single-row index lookup on p using PRIMARY (product_id=oi.product_id)  (cost=0.25 rows=1) (actual time=0.00884..0.00898 rows=1 loops=5.3e+6)
+

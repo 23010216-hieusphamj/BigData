@@ -1,0 +1,13 @@
+-- Q8 | Top 10 khách chi tiêu nhiều nhất ở Hà Nội
+-- nhãn: before
+
+-> Limit: 10 row(s)  (actual time=28328..28328 rows=10 loops=1)
+    -> Sort: tong_chi_tieu DESC, limit input to 10 row(s) per chunk  (actual time=28328..28328 rows=10 loops=1)
+        -> Table scan on <temporary>  (actual time=28297..28313 rows=21764 loops=1)
+            -> Aggregate using temporary table  (actual time=28297..28297 rows=21764 loops=1)
+                -> Nested loop inner join  (cost=270879 rows=19933) (actual time=0.775..23697 rows=342563 loops=1)
+                    -> Filter: (o.`status` = 'completed')  (cost=201114 rows=199328) (actual time=0.711..6896 rows=1.4e+6 loops=1)
+                        -> Table scan on o  (cost=201114 rows=1.99e+6) (actual time=0.69..4695 rows=2e+6 loops=1)
+                    -> Filter: (c.city = 'Hà Nội')  (cost=0.25 rows=0.1) (actual time=0.0111..0.0113 rows=0.245 loops=1.4e+6)
+                        -> Single-row index lookup on c using PRIMARY (customer_id=o.customer_id)  (cost=0.25 rows=1) (actual time=0.00871..0.00887 rows=1 loops=1.4e+6)
+

@@ -1,0 +1,7 @@
+-- Q2 | Doanh thu tháng 3/2025
+-- nhãn: before
+
+-> Aggregate: count(0), sum(orders.total_amount)  (cost=221047 rows=1) (actual time=3359..3359 rows=1 loops=1)
+    -> Filter: ((orders.`status` = 'completed') and (year(orders.order_date) = 2025) and (month(orders.order_date) = 3))  (cost=201114 rows=199328) (actual time=2662..3345 rows=19808 loops=1)
+        -> Table scan on orders  (cost=201114 rows=1.99e+6) (actual time=0.0842..2011 rows=2e+6 loops=1)
+

@@ -1,0 +1,8 @@
+-- Q3 | Tìm khách theo email và các đơn hàng
+-- nhãn: before
+
+-> Nested loop inner join  (cost=898762 rows=221453) (actual time=334..24586 rows=36 loops=1)
+    -> Table scan on o  (cost=201114 rows=1.99e+6) (actual time=0.457..4175 rows=2e+6 loops=1)
+    -> Filter: (c.email like 'user12345@%')  (cost=0.25 rows=0.111) (actual time=0.0096..0.0096 rows=18e-6 loops=2e+6)
+        -> Single-row index lookup on c using PRIMARY (customer_id=o.customer_id)  (cost=0.25 rows=1) (actual time=0.00733..0.00747 rows=1 loops=2e+6)
+
