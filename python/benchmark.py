@@ -21,7 +21,7 @@ DEFAULT_SQL = ROOT / "sql" / "queries" / "02_business_queries_unoptimized.sql"
 PLAN_DIR = ROOT / "results" / "plan"
 TABLE_DIR = ROOT / "results" / "tables"
 
-MARKER = re.compile(r"^--\s*@(Q\d+)\s*\|\s*(.*)$")
+MARKER = re.compile(r"^--\s*@(Q\d+[A-Za-z]?)\s*\|\s*(.*)$")
 
 
 def parse_queries(path):

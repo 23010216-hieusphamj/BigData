@@ -1,0 +1,5 @@
+Thời điểm: 2026-10-10 17:31:26
+MySQL: 8.0.46
+innodb_buffer_pool_size: 1024 MB
+File truy vấn: sql\queries\03_business_queries_optimized.sql
+Nhãn: step2_rewrite | runs=5, slow_runs=3, slow_threshold=30.0s

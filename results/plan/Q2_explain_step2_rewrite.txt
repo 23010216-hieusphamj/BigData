@@ -1,0 +1,7 @@
+-- Q2 | Doanh thu tháng 3/2025 (viết lại)
+-- nhãn: step2_rewrite
+
+-> Aggregate: count(0), sum(orders.total_amount)  (cost=25072 rows=1) (actual time=174..174 rows=1 loops=1)
+    -> Filter: (orders.`status` = 'completed')  (cost=24527 rows=5450) (actual time=5.95..169 rows=19808 loops=1)
+        -> Index range scan on orders using idx_orders_order_date over ('2025-03-01 00:00:00' <= order_date < '2025-04-01 00:00:00'), with index condition: ((orders.order_date >= TIMESTAMP'2025-03-01 00:00:00') and (orders.order_date < TIMESTAMP'2025-04-01 00:00:00'))  (cost=24527 rows=54504) (actual time=5.94..159 rows=28157 loops=1)
+

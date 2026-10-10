@@ -1,0 +1,10 @@
+-- Q6B | Sản phẩm giá cao hơn trung bình danh mục (window)
+-- nhãn: step2_rewrite
+
+-> Filter: (t.price > t.avg_price)  (cost=0.338..1142 rows=3376) (actual time=73.5..76.5 rows=3474 loops=1)
+    -> Table scan on t  (cost=2.5..2.5 rows=0) (actual time=73.5..75 rows=10000 loops=1)
+        -> Materialize  (cost=0..0 rows=0) (actual time=73.4..73.4 rows=10000 loops=1)
+            -> Window aggregate with buffering: avg(products.price) OVER (PARTITION BY products.category_id )   (actual time=29.1..64.2 rows=10000 loops=1)
+                -> Sort: products.category_id  (cost=1037 rows=10128) (actual time=23.3..25.8 rows=10000 loops=1)
+                    -> Table scan on products  (cost=1037 rows=10128) (actual time=0.0618..7.23 rows=10000 loops=1)
+

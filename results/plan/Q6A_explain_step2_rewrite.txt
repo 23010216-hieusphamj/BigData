@@ -1,0 +1,12 @@
+-- Q6A | Sản phẩm giá cao hơn trung bình danh mục (JOIN)
+-- nhãn: step2_rewrite
+
+-> Nested loop inner join  (cost=359062 rows=340942) (actual time=7.99..34.5 rows=3474 loops=1)
+    -> Table scan on p  (cost=1037 rows=10128) (actual time=0.0802..6.94 rows=10000 loops=1)
+    -> Filter: (p.price > a.avg_price)  (cost=0.75..25.3 rows=33.7) (actual time=0.0023..0.00241 rows=0.347 loops=10000)
+        -> Covering index lookup on a using <auto_key0> (category_id=p.category_id)  (cost=0.25..25.3 rows=101) (actual time=0.00171..0.00192 rows=1 loops=10000)
+            -> Materialize  (cost=0..0 rows=0) (actual time=7.88..7.88 rows=20 loops=1)
+                -> Table scan on <temporary>  (actual time=7.84..7.85 rows=20 loops=1)
+                    -> Aggregate using temporary table  (actual time=7.84..7.84 rows=20 loops=1)
+                        -> Table scan on products  (cost=1037 rows=10128) (actual time=0.0834..3.79 rows=10000 loops=1)
+

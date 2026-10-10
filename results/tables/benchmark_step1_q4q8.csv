@@ -1,0 +1,3 @@
+﻿query,title,rows_returned,runs,mean_s,median_s,stdev_s,min_s,max_s,run_times_s
+Q4,Doanh thu theo tháng và danh mục năm 2025,240,3,104.8847,103.6408,3.1275,102.5706,108.4428,103.6408;102.5706;108.4428
+Q8,Top 10 khách chi tiêu nhiều nhất ở Hà Nội,10,5,8.4726,8.0486,0.9578,7.621,9.6561,9.3431;7.6941;9.6561;8.0486;7.6210

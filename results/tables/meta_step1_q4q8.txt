@@ -1,0 +1,5 @@
+Thời điểm: 2026-10-10 17:35:28
+MySQL: 8.0.46
+innodb_buffer_pool_size: 1024 MB
+File truy vấn: E:\BigData\sql\queries\02_business_queries_unoptimized.sql
+Nhãn: step1_q4q8 | runs=5, slow_runs=3, slow_threshold=30.0s

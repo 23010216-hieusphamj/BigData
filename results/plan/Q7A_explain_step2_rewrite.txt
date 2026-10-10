@@ -1,0 +1,6 @@
+-- Q7A | Phân trang sâu (keyset)
+-- nhãn: step2_rewrite
+
+-> Limit: 20 row(s)  (cost=201114 rows=20) (actual time=1.08..1.09 rows=20 loops=1)
+    -> Index range scan on orders using idx_orders_order_date over (order_date < '2022-12-31 14:54:45') OR (order_date = '2022-12-31 14:54:45' AND order_id < 1000001) (reverse), with index condition: ((orders.order_date < TIMESTAMP'2022-12-31 14:54:45') or ((orders.order_date = TIMESTAMP'2022-12-31 14:54:45') and (orders.order_id < 1000001)))  (cost=201114 rows=996641) (actual time=1.08..1.09 rows=20 loops=1)
+
