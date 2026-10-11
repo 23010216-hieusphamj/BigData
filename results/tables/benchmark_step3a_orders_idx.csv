@@ -1,0 +1,3 @@
+﻿query,title,rows_returned,runs,mean_s,median_s,stdev_s,min_s,max_s,run_times_s
+Q1,Đơn hoàn tất trong tháng 1/2025,19864,5,0.1369,0.1422,0.0452,0.0893,0.1979,0.1979;0.1422;0.0961;0.0893;0.1587
+Q2,Doanh thu tháng 3/2025 (viết lại),1,5,0.0643,0.0569,0.0285,0.0356,0.0954,0.0930;0.0954;0.0569;0.0356;0.0404

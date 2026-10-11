@@ -1,0 +1,6 @@
+-- Q1 | Đơn hoàn tất trong tháng 1/2025
+-- nhãn: step3a_orders_idx
+
+-> Filter: ((orders.`status` = 'completed') and (orders.order_date >= TIMESTAMP'2025-01-01 00:00:00') and (orders.order_date < TIMESTAMP'2025-02-01 00:00:00'))  (cost=8336 rows=39278) (actual time=1.91..119 rows=19864 loops=1)
+    -> Covering index range scan on orders using idx_orders_status_date_cov over (status = 'completed' AND '2025-01-01 00:00:00' <= order_date < '2025-02-01 00:00:00')  (cost=8336 rows=39278) (actual time=1.9..78 rows=19864 loops=1)
+

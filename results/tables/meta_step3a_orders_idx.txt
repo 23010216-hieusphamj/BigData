@@ -1,0 +1,5 @@
+Thời điểm: 2026-10-11 13:07:12
+MySQL: 8.0.46
+innodb_buffer_pool_size: 1024 MB
+File truy vấn: sql\queries\04_business_queries_final.sql
+Nhãn: step3a_orders_idx | runs=5, slow_runs=3, slow_threshold=30.0s

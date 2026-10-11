@@ -1,0 +1,17 @@
+-- Q5S | Top 3 sản phẩm mỗi danh mục (đọc bảng tổng hợp)
+-- nhãn: step4_summary_part
+
+-> Sort: c.category_name, x.hang  (actual time=130..130 rows=60 loops=1)
+    -> Stream results  (cost=716 rows=680) (actual time=126..130 rows=60 loops=1)
+        -> Nested loop inner join  (cost=716 rows=680) (actual time=126..130 rows=60 loops=1)
+            -> Table scan on c  (cost=2.25 rows=20) (actual time=0.0224..0.0897 rows=20 loops=1)
+            -> Filter: (x.hang <= 3)  (cost=0.755..25.7 rows=34) (actual time=6.29..6.5 rows=3 loops=20)
+                -> Index lookup on x using <auto_key0> (category_id=c.category_id)  (cost=0.252..25.7 rows=102) (actual time=6.29..6.45 rows=500 loops=20)
+                    -> Materialize  (cost=0..0 rows=0) (actual time=126..126 rows=10000 loops=1)
+                        -> Window aggregate: row_number() OVER (PARTITION BY p.category_id ORDER BY r.doanh_thu desc )   (actual time=99.9..107 rows=10000 loops=1)
+                            -> Sort: p.category_id, r.doanh_thu DESC  (actual time=99.9..102 rows=10000 loops=1)
+                                -> Stream results  (cost=4582 rows=10128) (actual time=0.137..72.9 rows=10000 loops=1)
+                                    -> Nested loop inner join  (cost=4582 rows=10128) (actual time=0.133..56.6 rows=10000 loops=1)
+                                        -> Table scan on p  (cost=1037 rows=10128) (actual time=0.122..12.3 rows=10000 loops=1)
+                                        -> Single-row index lookup on r using PRIMARY (product_id=p.product_id)  (cost=0.25 rows=1) (actual time=0.00375..0.00382 rows=1 loops=10000)
+

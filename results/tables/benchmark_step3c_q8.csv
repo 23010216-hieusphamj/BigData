@@ -1,0 +1,3 @@
+﻿query,title,rows_returned,runs,mean_s,median_s,stdev_s,min_s,max_s,run_times_s
+Q3,Tìm khách theo email và các đơn hàng,36,5,0.0012,0.001,0.0007,0.0006,0.0023,0.0009;0.0010;0.0023;0.0006;0.0014
+Q8,Top 10 khách chi tiêu nhiều nhất ở Hà Nội,10,5,4.016,3.9494,0.4254,3.3969,4.4558,3.9020;3.9494;4.4558;4.3762;3.3969

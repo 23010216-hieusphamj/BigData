@@ -1,0 +1,2 @@
+﻿query,title,rows_returned,runs,mean_s,median_s,stdev_s,min_s,max_s,run_times_s
+Q7A,Phân trang sâu (keyset),20,5,0.0024,0.0019,0.0015,0.0011,0.0042,0.0011;0.0019;0.0042;0.0037;0.0011

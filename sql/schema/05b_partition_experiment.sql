@@ -1,0 +1,25 @@
+USE shop_db;
+
+DROP TABLE IF EXISTS orders_part;
+
+CREATE TABLE orders_part (
+    order_id       INT UNSIGNED  NOT NULL,
+    customer_id    INT UNSIGNED  NOT NULL,
+    order_date     DATETIME      NOT NULL,
+    status         VARCHAR(20)   NOT NULL,
+    payment_method VARCHAR(20)   NOT NULL,
+    total_amount   DECIMAL(12,2) NOT NULL,
+    PRIMARY KEY (order_id, order_date)
+) ENGINE=InnoDB
+PARTITION BY RANGE COLUMNS (order_date) (
+    PARTITION p2020 VALUES LESS THAN ('2021-01-01'),
+    PARTITION p2021 VALUES LESS THAN ('2022-01-01'),
+    PARTITION p2022 VALUES LESS THAN ('2023-01-01'),
+    PARTITION p2023 VALUES LESS THAN ('2024-01-01'),
+    PARTITION p2024 VALUES LESS THAN ('2025-01-01'),
+    PARTITION p2025 VALUES LESS THAN ('2026-01-01'),
+    PARTITION pmax  VALUES LESS THAN (MAXVALUE)
+);
+
+INSERT INTO orders_part SELECT * FROM orders;
+ANALYZE TABLE orders_part;

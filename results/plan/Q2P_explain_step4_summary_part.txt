@@ -1,0 +1,7 @@
+-- Q2P | Doanh thu tháng 3/2025 trên bảng chia partition, chưa có index phụ
+-- nhãn: step4_summary_part
+
+-> Aggregate: count(0), sum(orders_part.total_amount)  (cost=33943 rows=1) (actual time=893..893 rows=1 loops=1)
+    -> Filter: ((orders_part.`status` = 'completed') and (orders_part.order_date >= TIMESTAMP'2025-03-01 00:00:00') and (orders_part.order_date < TIMESTAMP'2025-04-01 00:00:00'))  (cost=33573 rows=3697) (actual time=191..880 rows=19808 loops=1)
+        -> Table scan on orders_part  (cost=33573 rows=332763) (actual time=0.538..502 rows=333623 loops=1)
+

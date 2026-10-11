@@ -1,0 +1,15 @@
+-- Q4 | Doanh thu theo tháng và danh mục năm 2025
+-- nhãn: final_core
+
+-> Sort: thang, doanh_thu DESC  (actual time=20760..20760 rows=240 loops=1)
+    -> Table scan on <temporary>  (actual time=20760..20760 rows=240 loops=1)
+        -> Aggregate using temporary table  (actual time=20760..20760 rows=240 loops=1)
+            -> Nested loop inner join  (cost=1.5e+6 rows=1.2e+6) (actual time=10.4..15452 rows=620567 loops=1)
+                -> Nested loop inner join  (cost=1.08e+6 rows=1.2e+6) (actual time=10.3..12365 rows=620567 loops=1)
+                    -> Nested loop inner join  (cost=661551 rows=1.2e+6) (actual time=9.94..8382 rows=620567 loops=1)
+                        -> Filter: ((o.`status` = 'completed') and (o.order_date >= TIMESTAMP'2025-01-01 00:00:00') and (o.order_date < TIMESTAMP'2026-01-01 00:00:00'))  (cost=94535 rows=445506) (actual time=3.81..1596 rows=233870 loops=1)
+                            -> Covering index range scan on o using idx_orders_status_date_cov over (status = 'completed' AND '2025-01-01 00:00:00' <= order_date < '2026-01-01 00:00:00')  (cost=94535 rows=445506) (actual time=3.78..870 rows=233870 loops=1)
+                        -> Covering index lookup on oi using idx_oi_order_cov (order_id=o.order_id)  (cost=1 rows=2.69) (actual time=0.0212..0.0277 rows=2.65 loops=233870)
+                    -> Single-row index lookup on p using PRIMARY (product_id=oi.product_id)  (cost=0.25 rows=1) (actual time=0.00565..0.00575 rows=1 loops=620567)
+                -> Single-row index lookup on cat using PRIMARY (category_id=p.category_id)  (cost=0.25 rows=1) (actual time=0.00416..0.00426 rows=1 loops=620567)
+

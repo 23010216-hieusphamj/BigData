@@ -1,0 +1,9 @@
+-- Q4S | Doanh thu theo tháng và danh mục 2025 (đọc bảng tổng hợp)
+-- nhãn: final_summary
+
+-> Nested loop inner join  (cost=133 rows=240) (actual time=3.02..5.94 rows=240 loops=1)
+    -> Sort: s.thang, s.doanh_thu DESC  (cost=49.1 rows=240) (actual time=2.94..3.28 rows=240 loops=1)
+        -> Filter: ((s.thang >= '2025-01') and (s.thang <= '2025-12'))  (cost=49.1 rows=240) (actual time=0.556..1.91 rows=240 loops=1)
+            -> Index range scan on s using PRIMARY over ('2025-01' <= thang <= '2025-12')  (cost=49.1 rows=240) (actual time=0.541..1.28 rows=240 loops=1)
+    -> Single-row index lookup on cat using PRIMARY (category_id=s.category_id)  (cost=0.25 rows=1) (actual time=0.00952..0.00974 rows=1 loops=240)
+

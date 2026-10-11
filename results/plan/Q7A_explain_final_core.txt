@@ -1,0 +1,7 @@
+-- Q7A | Phân trang sâu (keyset)
+-- nhãn: final_core
+
+-> Limit: 20 row(s)  (cost=1.99 rows=19.5) (actual time=15042..15042 rows=20 loops=1)
+    -> Filter: ((orders.order_date < TIMESTAMP'2022-12-31 14:54:45') or ((orders.order_date = TIMESTAMP'2022-12-31 14:54:45') and (orders.order_id < 1000001)))  (cost=1.99 rows=19.5) (actual time=15042..15042 rows=20 loops=1)
+        -> Index scan on orders using idx_orders_order_date (reverse)  (cost=1.99 rows=39) (actual time=3.25..14254 rows=1e+6 loops=1)
+

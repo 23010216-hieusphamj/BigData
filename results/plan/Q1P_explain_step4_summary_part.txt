@@ -1,0 +1,6 @@
+-- Q1P | Đơn hoàn tất tháng 1/2025 trên bảng chia partition, chưa có index phụ
+-- nhãn: step4_summary_part
+
+-> Filter: ((orders_part.`status` = 'completed') and (orders_part.order_date >= TIMESTAMP'2025-01-01 00:00:00') and (orders_part.order_date < TIMESTAMP'2025-02-01 00:00:00'))  (cost=33573 rows=3697) (actual time=0.111..711 rows=19864 loops=1)
+    -> Table scan on orders_part  (cost=33573 rows=332763) (actual time=0.108..449 rows=333623 loops=1)
+

@@ -1,0 +1,10 @@
+-- Q8S | Top 10 khách chi tiêu nhiều nhất ở Hà Nội (đọc bảng tổng hợp)
+-- nhãn: step4_summary_part
+
+-> Limit: 10 row(s)  (cost=40955 rows=10) (actual time=151..152 rows=10 loops=1)
+    -> Nested loop inner join  (cost=40955 rows=45387) (actual time=151..152 rows=10 loops=1)
+        -> Sort: s.tong_chi_tieu DESC  (cost=9170 rows=90815) (actual time=151..151 rows=59 loops=1)
+            -> Table scan on s  (cost=9170 rows=90815) (actual time=0.754..49.1 rows=89452 loops=1)
+        -> Filter: (c.city = 'Hà Nội')  (cost=0.25 rows=0.5) (actual time=0.00504..0.00508 rows=0.169 loops=59)
+            -> Single-row index lookup on c using PRIMARY (customer_id=s.customer_id)  (cost=0.25 rows=1) (actual time=0.00396..0.00404 rows=1 loops=59)
+

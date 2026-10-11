@@ -1,0 +1,11 @@
+-- Q8 | Top 10 khách chi tiêu nhiều nhất ở Hà Nội
+-- nhãn: final_core
+
+-> Limit: 10 row(s)  (actual time=3914..3914 rows=10 loops=1)
+    -> Sort: tong_chi_tieu DESC, limit input to 10 row(s) per chunk  (actual time=3914..3914 rows=10 loops=1)
+        -> Table scan on <temporary>  (actual time=3848..3876 rows=21764 loops=1)
+            -> Aggregate using temporary table  (actual time=3848..3848 rows=21764 loops=1)
+                -> Nested loop inner join  (cost=88360 rows=275572) (actual time=5.16..1852 rows=342563 loops=1)
+                    -> Covering index lookup on c using idx_customers_city_name (city='Hà Nội')  (cost=8518 rows=49680) (actual time=0.416..182 rows=24261 loops=1)
+                    -> Covering index lookup on o using idx_orders_cust_status_amt (customer_id=c.customer_id, status='completed')  (cost=1.05 rows=5.55) (actual time=0.0295..0.0635 rows=14.1 loops=24261)
+

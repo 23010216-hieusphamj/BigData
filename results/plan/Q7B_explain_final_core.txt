@@ -1,0 +1,12 @@
+-- Q7B | Phân trang sâu (deferred join)
+-- nhãn: final_core
+
+-> Sort: o.order_date DESC, o.order_id DESC  (actual time=1231..1231 rows=20 loops=1)
+    -> Stream results  (cost=301379 rows=20) (actual time=1231..1231 rows=20 loops=1)
+        -> Nested loop inner join  (cost=301379 rows=20) (actual time=1231..1231 rows=20 loops=1)
+            -> Table scan on t  (cost=51052..51054 rows=20) (actual time=1231..1231 rows=20 loops=1)
+                -> Materialize  (cost=51052..51052 rows=20) (actual time=1231..1231 rows=20 loops=1)
+                    -> Limit/Offset: 20/1000000 row(s)  (cost=51050 rows=20) (actual time=1231..1231 rows=20 loops=1)
+                        -> Covering index scan on orders using idx_orders_order_date (reverse)  (cost=51050 rows=1e+6) (actual time=15.2..1108 rows=1e+6 loops=1)
+            -> Single-row index lookup on o using PRIMARY (order_id=t.order_id)  (cost=0.25 rows=1) (actual time=0.00491..0.00493 rows=1 loops=20)
+

@@ -1,0 +1,7 @@
+-- Q2 | Doanh thu tháng 3/2025 (viết lại)
+-- nhãn: final_core
+
+-> Aggregate: count(0), sum(orders.total_amount)  (cost=12120 rows=1) (actual time=42.8..42.8 rows=1 loops=1)
+    -> Filter: ((orders.`status` = 'completed') and (orders.order_date >= TIMESTAMP'2025-03-01 00:00:00') and (orders.order_date < TIMESTAMP'2025-04-01 00:00:00'))  (cost=8238 rows=38818) (actual time=0.158..37.8 rows=19808 loops=1)
+        -> Covering index range scan on orders using idx_orders_status_date_cov over (status = 'completed' AND '2025-03-01 00:00:00' <= order_date < '2025-04-01 00:00:00')  (cost=8238 rows=38818) (actual time=0.155..24.9 rows=19808 loops=1)
+
