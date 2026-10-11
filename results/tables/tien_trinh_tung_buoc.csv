@@ -1,0 +1,37 @@
+﻿Truy vấn,Thứ tự,Mốc,File,Mã trong file,TB (s),Trung vị (s),Lệch chuẩn (s)
+Q1,0,Baseline,before,Q1,4.6117,4.5997,0.3928
+Q1,1,Index đơn,step1_index,Q1,0.3128,0.2659,0.1071
+Q1,2,Covering,step3a_orders_idx,Q1,0.1369,0.1422,0.0452
+Q1,3,Đo cuối,final_core,Q1,0.0694,0.0696,0.0145
+Q2,0,Baseline,before,Q2,3.5426,3.3403,0.4901
+Q2,1,Index đơn,step1_index,Q2,4.2576,4.1553,0.3385
+Q2,2,Viết lại,step2_rewrite,Q2,0.1792,0.1377,0.0787
+Q2,3,Covering,step3a_orders_idx,Q2,0.0643,0.0569,0.0285
+Q2,4,Đo cuối,final_core,Q2,0.0301,0.0321,0.0058
+Q3,0,Baseline,before,Q3,19.7146,20.6464,3.1757
+Q3,1,Index đơn,step1_index,Q3,0.002,0.0016,0.0009
+Q3,2,Covering,step3c_q8,Q3,0.0012,0.001,0.0007
+Q3,3,Đo cuối,final_core,Q3,0.0022,0.0015,0.0014
+Q4,0,Baseline,before,Q4,101.5602,96.6055,9.812
+Q4,1,Index đơn,step1_q4q8,Q4,104.8847,103.6408,3.1275
+Q4,2,Covering,step3b_items_idx,Q4,21.0053,21.1884,1.24
+Q4,3,Đo cuối,final_core,Q4,21.0038,19.7688,2.1055
+Q4,4,Bảng tổng hợp,final_summary,Q4S,0.0107,0.0094,0.0029
+Q5,0,Baseline,before,Q5,250.7096,251.1006,2.5299
+Q5,1,Viết lại,step2_rewrite,Q5,15.6104,15.6766,1.069
+Q5,2,Covering,step3b_items_idx,Q5,8.1214,8.4868,1.6541
+Q5,3,Đo cuối,final_core,Q5,6.1067,6.0739,1.4765
+Q5,4,Bảng tổng hợp,final_summary,Q5S,0.18,0.1705,0.0622
+Q6,0,Baseline,before,Q6,112.6664,112.546,7.1618
+Q6,1,Viết lại JOIN,step2_rewrite,Q6A,0.0455,0.0461,0.0025
+Q6,2,Đo cuối,final_core,Q6A,0.0774,0.0524,0.0405
+Q7,0,Baseline,before,Q7,6.5111,6.7526,0.5848
+Q7,1,Index đơn,step1_index,Q7,6.3722,6.5921,0.5422
+Q7,2,Keyset,step2_rewrite,Q7A,0.0026,0.0025,0.0006
+Q7,3,Đo cuối (lỗi),final_core,Q7A,9.7878,9.422,1.7851
+Q7,4,Sửa FORCE INDEX,final_q7a_fix,Q7A,0.0024,0.0019,0.0015
+Q8,0,Baseline,before,Q8,22.3722,22.9853,1.4518
+Q8,1,Index đơn,step1_q4q8,Q8,8.4726,8.0486,0.9578
+Q8,2,Covering,step3c_q8,Q8,4.016,3.9494,0.4254
+Q8,3,Đo cuối,final_core,Q8,3.6567,3.8207,0.5635
+Q8,4,Bảng tổng hợp,final_summary,Q8S,0.4331,0.4837,0.1196
